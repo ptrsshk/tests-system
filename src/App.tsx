@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Header } from "./components/Header";
 import { Test } from "./components/Test";
 import { testData } from "./tests";
@@ -18,11 +18,11 @@ export const App = () => {
     return testData.categories.find((cat) => cat.name === category)?.scoring;
   };
 
-  const handleSelectCategory = (e) => {
+  const handleSelectCategory = (e: ChangeEvent<HTMLSelectElement>) => {
     setResults(null)
     setCategory(e.target.value);
   };
-  const handleSelectTest = (e) => {
+  const handleSelectTest = (e: ChangeEvent<HTMLSelectElement>) => {
     setResults(null)
     setTest(e.target.value);
   };

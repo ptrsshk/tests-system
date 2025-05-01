@@ -26,8 +26,7 @@ interface TestProps {
 export const Test: FC<TestProps> = ({ test, scoring, results, setResults }) => {
   const handleForm: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-
-    const formData = new FormData(event.target);
+    const formData = new FormData(event.currentTarget);
     const formDataObj = Object.fromEntries(formData.entries());
     console.log(formDataObj);
 

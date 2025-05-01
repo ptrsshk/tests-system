@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { ChangeEvent, FC } from "react";
 import { testData } from "../tests";
 
 interface HeaderProps {
-  handleSelectTest: (e: any) => void;
-  handleSelectCategory: (e: any) => void;
+  handleSelectTest: (e: ChangeEvent<HTMLSelectElement>) => void;
+  handleSelectCategory: (e: ChangeEvent<HTMLSelectElement>) => void;
   category: string;
 }
 
