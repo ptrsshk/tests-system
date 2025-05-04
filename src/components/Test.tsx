@@ -1,4 +1,4 @@
-import { Dispatch, FC, FormEventHandler, SetStateAction } from "react";
+import { Dispatch, FC, FormEventHandler, SetStateAction, useLayoutEffect, useRef } from "react";
 
 interface ITest {
   name: string;
@@ -24,6 +24,13 @@ interface TestProps {
 }
 
 export const Test: FC<TestProps> = ({ test, scoring, results, setResults }) => {
+
+const testsRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    if (testsRef.current && results) {testsRef.current.scrollIntoView({behavior: 'smooth'});}
+  }, [results]);
+
   const handleForm: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -35,7 +42,6 @@ export const Test: FC<TestProps> = ({ test, scoring, results, setResults }) => {
       results.push(value);
     }
     setResults(results.reduce((acc, el) => (acc += Number(el)), 0));
-    console.log(results.reduce((acc, el) => (acc += Number(el)), 0));
   };
 
   return (
@@ -73,7 +79,7 @@ export const Test: FC<TestProps> = ({ test, scoring, results, setResults }) => {
         <h2>Сначала выберите тест</h2>
       )}
       {results && (
-        <div className='score'>
+        <div className='score' ref={testsRef}>
           <h3>Ваш результат: {results} баллов</h3>
           <div className='score-text'>
             {scoring?.map((score) => (
