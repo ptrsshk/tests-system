@@ -1,7 +1,7 @@
 export const testData = {
   categories: [
     {
-      name: "Делегирование полномочий",
+      name: "Делегирование полномочий и принятие решений",
       tests: [
         {
           name: "Тест 1",
