@@ -17,6 +17,14 @@
 
 [Github](https://github.com/ptrsshk/tests-system)
 
+#### Инструкция по запуску
+
+Откройте папку проекта и запустите следующие команды:
+```
+yarn
+yarn preview
+```
+
 ### Ссылка на приложение:
 
 [Здесь](https://tests-system-ebon.vercel.app/)
@@ -28,3 +36,5 @@
 ![Выбор тестов](./screenshots/2.png)
 ---
 ![Вывод результатов](./screenshots/3.png)
+---
+
